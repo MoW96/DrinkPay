@@ -60,5 +60,20 @@ namespace DrinkPay
             margin.Bottom = 100;
             img.Margin = margin;
         }
+
+        private void btn_DrinkPay_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btn_Übersicht_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btn_Einstellungen_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

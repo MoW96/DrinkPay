@@ -28,7 +28,7 @@
                     <TextBlock Style="{StaticResource NavButtonText}">Back</TextBlock>
                 </Grid>
             </Button>
-            <Button Grid.Row="0" x:Name="cmdReturn" Style="{StaticResource NavButtonStyle}" Click="CmdReturn_Click">
+            <Button Grid.Row="0" x:Name="cmdReturn" Style="{StaticResource NavButtonStyle}" Click="CmdReturn_Click" Visibility="Collapsed">
                 <Grid>
                     <Image Style="{StaticResource NavButtonImage}" Source="Resources/icons8-pfeil -vorwärts-96.png" Height="20"/>
                     <TextBlock Style="{StaticResource NavButtonText}">Return</TextBlock>

@@ -17,13 +17,13 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Grid.Column="0" Margin="50" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Button  Margin="10,10,10,10" x:Name="btn_DrinkPay" Background="Transparent" BorderBrush="Transparent">
+            <Button  Margin="10,10,10,10" x:Name="btn_DrinkPay" Background="Transparent" BorderBrush="Transparent" Click="btn_DrinkPay_Click">
                 <Image Source="Resources/icons8-cocktail.png" Height="100"/>
             </Button>
-            <Button  Margin="10,10,10,10" x:Name="btn_Übersicht" Background="Transparent" BorderBrush="Transparent" >
+            <Button  Margin="10,10,10,10" x:Name="btn_Übersicht" Background="Transparent" BorderBrush="Transparent" Click="btn_Übersicht_Click">
                 <Image Source="Resources/icons8-list.png" Height="100"/>
             </Button>
-            <Button  Margin="10,10,10,10" x:Name="btn_Einstellungen" Background="Transparent" BorderBrush="Transparent">
+            <Button  Margin="10,10,10,10" x:Name="btn_Einstellungen" Background="Transparent" BorderBrush="Transparent" Click="btn_Einstellungen_Click">
                 <Image Source="Resources/icons8-settings.png" Height="100"/>
             </Button>
         </StackPanel>
