@@ -92,7 +92,7 @@ namespace DrinkPay
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            Environment.Exit(Environment.ExitCode);
+            Environment.Exit(Environment.ExitCode); 
         }
     }
 }
