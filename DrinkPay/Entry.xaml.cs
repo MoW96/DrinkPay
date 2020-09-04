@@ -27,6 +27,9 @@ namespace DrinkPay
             btn_DrinkPay.ToolTip = "Getränkeingabe";
             btn_Übersicht.ToolTip = "Übersicht";
             btn_Einstellungen.ToolTip = "Einstellungen";
+
+            UserAnmeldung start = new UserAnmeldung();
+            start.ShowDialog();
         }
 
         public bool AllowsBack => false;
@@ -63,17 +66,17 @@ namespace DrinkPay
 
         private void btn_DrinkPay_Click(object sender, RoutedEventArgs e)
         {
-
+            // nur möglich wenn eingeloggt
         }
 
         private void btn_Übersicht_Click(object sender, RoutedEventArgs e)
         {
-
+            // nur möglich wenn eingeloggt
         }
 
         private void btn_Einstellungen_Click(object sender, RoutedEventArgs e)
         {
-
+            // hier Einstellungen vornehmen und benutzer wechseln
         }
     }
 }
