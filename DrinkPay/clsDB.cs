@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
 
-namespace Project_Kalender
+namespace DrinkPay
 {
     public static class clsDB
     {
@@ -51,19 +51,19 @@ namespace Project_Kalender
             }
             else
             {
-                if (Type.Equals("Mail"))
+                if (Type.Equals("User"))
                 {
-                    return dataSet.Tables[0].Rows[0]["MailAdresse"].ToString();
+                    return dataSet.Tables[0].Rows[0]["Username"].ToString();
                 }
                 else
                 {
-                    if (Type.Equals("PerMailSenden"))
+                    if (Type.Equals("Passwort"))
                     {
-                        return dataSet.Tables[0].Rows[0]["PerMailSenden"].ToString();
+                        return dataSet.Tables[0].Rows[0]["Passwort"].ToString();
                     }
                     else
                     {
-                        return dataSet.Tables[0].Rows[0]["DateiSchreiben"].ToString();
+                        return dataSet.Tables[0].Rows[0]["MailAdresse"].ToString();
                     }
                 }
             }

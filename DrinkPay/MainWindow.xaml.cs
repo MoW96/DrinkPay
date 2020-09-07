@@ -20,15 +20,14 @@ namespace DrinkPay
     /// </summary>
     public partial class MainWindow : Window
     {
-
         private IDrinkPay currentPage = null;
         public MainWindow()
         {
             InitializeComponent();
 
-            Username.Text = "User: " + Environment.UserName; // später derjenige der sich angemeldet hat asu DB
-
             NavigateToPage(new Entry());
+
+            Username.Text = "User: " + Info.getUser(); // später derjenige der sich angemeldet hat asu DB
         }
 
         private void NavigateToPage(IDrinkPay page, bool back = false)

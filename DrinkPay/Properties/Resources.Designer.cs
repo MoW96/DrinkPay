@@ -63,6 +63,16 @@ namespace DrinkPay.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Bier {
+            get {
+                object obj = ResourceManager.GetObject("Bier", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Blue_Lagoon {
             get {
                 object obj = ResourceManager.GetObject("Blue_Lagoon", resourceCulture);
@@ -73,9 +83,39 @@ namespace DrinkPay.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Cuba {
+            get {
+                object obj = ResourceManager.GetObject("Cuba", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap GinTonic {
+            get {
+                object obj = ResourceManager.GetObject("GinTonic", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_back_96 {
             get {
                 object obj = ResourceManager.GetObject("icons8_back_96", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_bier {
+            get {
+                object obj = ResourceManager.GetObject("icons8_bier", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

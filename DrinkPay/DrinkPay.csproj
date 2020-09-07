@@ -71,10 +71,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Getränkeeingabe.xaml.cs">
+      <DependentUpon>Getränkeeingabe.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Info.cs" />
     <Compile Include="UserAnmeldung.xaml.cs">
       <DependentUpon>UserAnmeldung.xaml</DependentUpon>
     </Compile>
     <Page Include="Entry.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Getränkeeingabe.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -159,6 +167,10 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>DB.mdf</DependentUpon>
     </Content>
+    <Resource Include="Resources\GinTonic.jpg" />
+    <Resource Include="Resources\Cuba.jpg" />
+    <Resource Include="Resources\Bier.jpg" />
+    <Resource Include="Resources\icons8-bier.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
