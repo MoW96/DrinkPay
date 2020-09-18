@@ -75,7 +75,7 @@ namespace DrinkPay
 
         private void btn_Übersicht_Click(object sender, RoutedEventArgs e)
         {
-            // nur möglich wenn eingeloggt
+            NavigationRequest?.Invoke(this, new Übersicht());
         }
 
         private void btn_Einstellungen_Click(object sender, RoutedEventArgs e)

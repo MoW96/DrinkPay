@@ -63,7 +63,14 @@ namespace DrinkPay
                     }
                     else
                     {
-                        return dataSet.Tables[0].Rows[0]["MailAdresse"].ToString();
+                        if (Type.Equals("Mail"))
+                        {
+                            return dataSet.Tables[0].Rows[0]["MailAdresse"].ToString();
+                        }
+                        else
+                        {
+                            return dataSet.Tables[0].Rows[0]["Gesamtbetrag"].ToString();
+                        }
                     }
                 }
             }

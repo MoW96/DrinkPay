@@ -91,6 +91,7 @@ namespace DrinkPay
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
+            clsDB.Close_DB_Connection();
             Environment.Exit(Environment.ExitCode); 
         }
     }

@@ -69,6 +69,8 @@ namespace DrinkPay
 
             auswahlOk = true;
             Preis = 1.0;
+
+            buttonEnable();
         }
 
         private void ComboBoxItem_Selected(object sender, RoutedEventArgs e)
@@ -85,7 +87,17 @@ namespace DrinkPay
         private void Anzahl0_Selected(object sender, RoutedEventArgs e)
         {
             anzahlOK = false;
-
+            tbPreis.Text = "-";
+            icon_bier1.Visibility = Visibility.Hidden;
+            icon_bier2.Visibility = Visibility.Hidden;
+            icon_bier3.Visibility = Visibility.Hidden;
+            icon_bier4.Visibility = Visibility.Hidden;
+            icon_bier5.Visibility = Visibility.Hidden;
+            icon_bier6.Visibility = Visibility.Hidden;
+            icon_bier7.Visibility = Visibility.Hidden;
+            icon_bier8.Visibility = Visibility.Hidden;
+            icon_bier9.Visibility = Visibility.Hidden;
+            icon_bier10.Visibility = Visibility.Hidden;
             buttonEnable();
         }
 
@@ -93,7 +105,16 @@ namespace DrinkPay
         {
             anzahlOK = true;
             anzahl = 1;
-
+            icon_bier1.Visibility = Visibility.Visible;
+            icon_bier2.Visibility = Visibility.Hidden;
+            icon_bier3.Visibility = Visibility.Hidden;
+            icon_bier4.Visibility = Visibility.Hidden;
+            icon_bier5.Visibility = Visibility.Hidden;
+            icon_bier6.Visibility = Visibility.Hidden;
+            icon_bier7.Visibility = Visibility.Hidden;
+            icon_bier8.Visibility = Visibility.Hidden;
+            icon_bier9.Visibility = Visibility.Hidden;
+            icon_bier10.Visibility = Visibility.Hidden;
             buttonEnable();
         }
 
@@ -102,7 +123,16 @@ namespace DrinkPay
         {
             anzahlOK = true;
             anzahl = 2;
-
+            icon_bier1.Visibility = Visibility.Visible;
+            icon_bier2.Visibility = Visibility.Visible;
+            icon_bier3.Visibility = Visibility.Hidden;
+            icon_bier4.Visibility = Visibility.Hidden;
+            icon_bier5.Visibility = Visibility.Hidden;
+            icon_bier6.Visibility = Visibility.Hidden;
+            icon_bier7.Visibility = Visibility.Hidden;
+            icon_bier8.Visibility = Visibility.Hidden;
+            icon_bier9.Visibility = Visibility.Hidden;
+            icon_bier10.Visibility = Visibility.Hidden;
             buttonEnable();
         }
 
@@ -110,7 +140,16 @@ namespace DrinkPay
         {
             anzahlOK = true;
             anzahl = 3;
-
+            icon_bier1.Visibility = Visibility.Visible;
+            icon_bier2.Visibility = Visibility.Visible;
+            icon_bier3.Visibility = Visibility.Visible;
+            icon_bier4.Visibility = Visibility.Hidden;
+            icon_bier5.Visibility = Visibility.Hidden;
+            icon_bier6.Visibility = Visibility.Hidden;
+            icon_bier7.Visibility = Visibility.Hidden;
+            icon_bier8.Visibility = Visibility.Hidden;
+            icon_bier9.Visibility = Visibility.Hidden;
+            icon_bier10.Visibility = Visibility.Hidden;
             buttonEnable();
         }
 
@@ -118,7 +157,16 @@ namespace DrinkPay
         {
             anzahlOK = true;
             anzahl = 4;
-
+            icon_bier1.Visibility = Visibility.Visible;
+            icon_bier2.Visibility = Visibility.Visible;
+            icon_bier3.Visibility = Visibility.Visible;
+            icon_bier4.Visibility = Visibility.Visible;
+            icon_bier5.Visibility = Visibility.Hidden;
+            icon_bier6.Visibility = Visibility.Hidden;
+            icon_bier7.Visibility = Visibility.Hidden;
+            icon_bier8.Visibility = Visibility.Hidden;
+            icon_bier9.Visibility = Visibility.Hidden;
+            icon_bier10.Visibility = Visibility.Hidden;
             buttonEnable();
         }
 
@@ -126,7 +174,16 @@ namespace DrinkPay
         {
             anzahlOK = true;
             anzahl = 5;
-
+            icon_bier1.Visibility = Visibility.Visible;
+            icon_bier2.Visibility = Visibility.Visible;
+            icon_bier3.Visibility = Visibility.Visible;
+            icon_bier4.Visibility = Visibility.Visible;
+            icon_bier5.Visibility = Visibility.Visible;
+            icon_bier6.Visibility = Visibility.Hidden;
+            icon_bier7.Visibility = Visibility.Hidden;
+            icon_bier8.Visibility = Visibility.Hidden;
+            icon_bier9.Visibility = Visibility.Hidden;
+            icon_bier10.Visibility = Visibility.Hidden;
             buttonEnable();
         }
 
@@ -134,7 +191,16 @@ namespace DrinkPay
         {
             anzahlOK = true;
             anzahl = 6;
-
+            icon_bier1.Visibility = Visibility.Visible;
+            icon_bier2.Visibility = Visibility.Visible;
+            icon_bier3.Visibility = Visibility.Visible;
+            icon_bier4.Visibility = Visibility.Visible;
+            icon_bier5.Visibility = Visibility.Visible;
+            icon_bier6.Visibility = Visibility.Visible;
+            icon_bier7.Visibility = Visibility.Hidden;
+            icon_bier8.Visibility = Visibility.Hidden;
+            icon_bier9.Visibility = Visibility.Hidden;
+            icon_bier10.Visibility = Visibility.Hidden;
             buttonEnable();
         }
 
@@ -142,7 +208,16 @@ namespace DrinkPay
         {
             anzahlOK = true;
             anzahl = 7;
-
+            icon_bier1.Visibility = Visibility.Visible;
+            icon_bier2.Visibility = Visibility.Visible;
+            icon_bier3.Visibility = Visibility.Visible;
+            icon_bier4.Visibility = Visibility.Visible;
+            icon_bier5.Visibility = Visibility.Visible;
+            icon_bier6.Visibility = Visibility.Visible;
+            icon_bier7.Visibility = Visibility.Visible;
+            icon_bier8.Visibility = Visibility.Hidden;
+            icon_bier9.Visibility = Visibility.Hidden;
+            icon_bier10.Visibility = Visibility.Hidden;
             buttonEnable();
         }
 
@@ -150,13 +225,33 @@ namespace DrinkPay
         {
             anzahlOK = true;
             anzahl = 8;
+            icon_bier1.Visibility = Visibility.Visible;
+            icon_bier2.Visibility = Visibility.Visible;
+            icon_bier3.Visibility = Visibility.Visible;
+            icon_bier4.Visibility = Visibility.Visible;
+            icon_bier5.Visibility = Visibility.Visible;
+            icon_bier6.Visibility = Visibility.Visible;
+            icon_bier7.Visibility = Visibility.Visible;
+            icon_bier8.Visibility = Visibility.Visible;
+            icon_bier9.Visibility = Visibility.Hidden;
+            icon_bier10.Visibility = Visibility.Hidden;
+            buttonEnable();
         }
 
         private void Anzahl9_Selected(object sender, RoutedEventArgs e)
         {
             anzahlOK = true;
             anzahl = 9;
-
+            icon_bier1.Visibility = Visibility.Visible;
+            icon_bier2.Visibility = Visibility.Visible;
+            icon_bier3.Visibility = Visibility.Visible;
+            icon_bier4.Visibility = Visibility.Visible;
+            icon_bier5.Visibility = Visibility.Visible;
+            icon_bier6.Visibility = Visibility.Visible;
+            icon_bier7.Visibility = Visibility.Visible;
+            icon_bier8.Visibility = Visibility.Visible;
+            icon_bier9.Visibility = Visibility.Visible;
+            icon_bier10.Visibility = Visibility.Hidden;
             buttonEnable();
         }
 
@@ -164,7 +259,16 @@ namespace DrinkPay
         {
             anzahlOK = true;
             anzahl = 10;
-
+            icon_bier1.Visibility = Visibility.Visible;
+            icon_bier2.Visibility = Visibility.Visible;
+            icon_bier3.Visibility = Visibility.Visible;
+            icon_bier4.Visibility = Visibility.Visible;
+            icon_bier5.Visibility = Visibility.Visible;
+            icon_bier6.Visibility = Visibility.Visible;
+            icon_bier7.Visibility = Visibility.Visible;
+            icon_bier8.Visibility = Visibility.Visible;
+            icon_bier9.Visibility = Visibility.Visible;
+            icon_bier10.Visibility = Visibility.Visible;
             buttonEnable();
         }
 
@@ -183,7 +287,54 @@ namespace DrinkPay
             else
             {
                 btnGetränkAbschliesen.IsEnabled = false;
+                tbPreis.Text = "-";
             }
+        }
+
+        private string get_GesamtpreisFromDB(string Username)
+        {
+            string sSQL = "SELECT Gesamtbetrag FROM tblUser WHERE [Username] = '" + Username + "'";
+
+            return clsDB.Get_String(sSQL, "Gesamtbetrag");
+        }
+
+        private void btnGetränkAbschliesen_Click(object sender, RoutedEventArgs e)
+        {
+            double d_Gesamtbetrag = 0;
+
+            string Selected_Combobox = cbGetränk.SelectedValue.ToString().Replace("System.Windows.Controls.ComboBoxItem: ", "");
+
+            string sql_Add = "INSERT INTO tblDrinks ([Username],[Drink],[Preis],[Anzahl]) VALUES('" + Info.getUser() + "','" + Selected_Combobox + "','" + Gesamtpreis.ToString("0.00") + "€','" + anzahl.ToString() + "')";
+            clsDB.Execute_SQL(sql_Add);
+
+            if(get_GesamtpreisFromDB(Info.getUser()) == "") 
+            {
+                string sql_setGesamtbetragNull = "UPDATE tblUser SET Gesamtbetrag = '0.00€' WHERE Username = '" + Info.getUser() + "'";
+                clsDB.Execute_SQL(sql_setGesamtbetragNull);
+            }
+
+            string Gesamtbetrag = get_GesamtpreisFromDB(Info.getUser());
+
+            Gesamtbetrag = Gesamtbetrag.Trim(new Char[] { '€' });
+            // Gesamtbetrag = Gesamtbetrag.Replace(",", ".");
+
+            d_Gesamtbetrag = Double.Parse(Gesamtbetrag);
+            d_Gesamtbetrag += Gesamtpreis;
+
+            string sql_update = "UPDATE tblUser SET Gesamtbetrag = '" + d_Gesamtbetrag.ToString("0.00") + "€'" + "WHERE Username = '" + Info.getUser() + "'";
+            clsDB.Execute_SQL(sql_update);
+
+            MessageBox.Show("Getränk wurde bestellt", "Getränkebestellung", MessageBoxButton.OK);
+
+            cbAnzahl.SelectedIndex = 0;
+            cbGetränk.SelectedIndex = 0;
+            tbPreis.Text = "-";
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            cbAnzahl.SelectedIndex = 0;
+            cbGetränk.SelectedIndex = 0;
         }
     }
 }

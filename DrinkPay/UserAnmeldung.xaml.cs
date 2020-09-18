@@ -153,7 +153,23 @@ namespace DrinkPay
             }
         }
 
+        private void EnterPressed(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                if (UserOK && AnmeldePWOK)
+                {
+                    Anmelden();
+                }
+            }
+        }
+
         private void btnSaveAnmelden_Click(object sender, RoutedEventArgs e)
+        {
+            Anmelden();
+        }
+
+        private void Anmelden()
         {
             //TODO: Mit DB abgleichen und starten
             if (!get_UserFromDB(tbUserAnmelden.Text).Equals("") && checkPW(tbPasswortAnmelden.Password))
@@ -219,6 +235,7 @@ namespace DrinkPay
         {
             if (NotClose == false)
             {
+                clsDB.Close_DB_Connection();
                 Application.Current.Shutdown();
             }
         }
