@@ -209,7 +209,7 @@ namespace DrinkPay
         }
 
         private string hashing(string Passwort)
-        {
+        { 
             // with SHA256 und salt
             string salt = "DrinkPay2020";
 
