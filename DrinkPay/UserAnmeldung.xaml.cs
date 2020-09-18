@@ -220,7 +220,7 @@ namespace DrinkPay
                 byte[] hashBytes = sha256Hash.ComputeHash(sourceBytes);
                 string hash = BitConverter.ToString(hashBytes).Replace("-", String.Empty);
 
-                return hash;
+                return hash; 
             }
         }
 
