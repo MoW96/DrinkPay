@@ -23,6 +23,9 @@ namespace DrinkPay
         public Übersicht()
         {
             InitializeComponent();
+
+            db_find_startRecord();
+            db_find_Gesamtpreis();
         }
 
         public bool AllowsBack => true;
@@ -32,5 +35,20 @@ namespace DrinkPay
 
         public IDrinkPay Previous { get; set; }
         public event NavigationRequestEventHandler NavigationRequest;
+
+        private void db_find_startRecord()
+        {
+
+            string sSQL = "SELECT * FROM tblDrinks WHERE Username = '" + Info.getUser() + "'";
+
+            dgTermine.ItemsSource = clsDB.Get_DataTable(sSQL).DefaultView;
+        }
+
+        private void db_find_Gesamtpreis()
+        {
+            string sSQL = "SELECT Gesamtbetrag FROM tblUSer WHERE Username = '" + Info.getUser() + "'";
+
+            Gesamtpreis.Text = "  " + clsDB.Get_String(sSQL, "Gesamtbetrag");
+        }
     }
 }

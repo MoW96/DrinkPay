@@ -23,6 +23,7 @@ namespace DrinkPay
         private double Preis, Gesamtpreis;
         private int anzahl;
         private bool auswahlOk, anzahlOK;
+        DateTime dt;
 
         public Getränkeeingabe()
         {
@@ -300,11 +301,12 @@ namespace DrinkPay
 
         private void btnGetränkAbschliesen_Click(object sender, RoutedEventArgs e)
         {
+           dt = DateTime.Now;
             double d_Gesamtbetrag = 0;
 
             string Selected_Combobox = cbGetränk.SelectedValue.ToString().Replace("System.Windows.Controls.ComboBoxItem: ", "");
 
-            string sql_Add = "INSERT INTO tblDrinks ([Username],[Drink],[Preis],[Anzahl]) VALUES('" + Info.getUser() + "','" + Selected_Combobox + "','" + Gesamtpreis.ToString("0.00") + "€','" + anzahl.ToString() + "')";
+            string sql_Add = "INSERT INTO tblDrinks ([Username],[Drink],[Preis],[Anzahl],[Datum]) VALUES('" + Info.getUser() + "','" + Selected_Combobox + "','" + Gesamtpreis.ToString("0.00") + "€','" + anzahl.ToString() + "',' " + dt.ToString("dd.MM.yyyy | HH:mm") + "')";
             clsDB.Execute_SQL(sql_Add);
 
             if(get_GesamtpreisFromDB(Info.getUser()) == "") 
