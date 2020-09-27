@@ -76,6 +76,28 @@ namespace DrinkPay
             }
         }
 
+        public static String get_db_string_sum(String SQLText)
+        {
+
+            // funktioniert nicht
+
+            SqlConnection cn_connection = Get_DB_Connection();
+
+            DataSet dataSet = new DataSet();
+            var dataAdapter = new SqlDataAdapter(SQLText, cn_connection);
+
+            dataAdapter.Fill(dataSet);
+
+            if (dataSet.Tables[0].Rows.Count == 0)
+            {
+                return "0";
+            }
+            else
+            {
+                return dataSet.Tables[0].Rows[0].ToString();
+            }
+        }
+
         // Ausführen
         public static void Execute_SQL(string SQLText)
         {

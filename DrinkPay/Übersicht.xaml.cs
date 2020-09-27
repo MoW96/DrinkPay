@@ -26,6 +26,7 @@ namespace DrinkPay
 
             db_find_startRecord();
             db_find_Gesamtpreis();
+            db_find_Anzahl();
         }
 
         public bool AllowsBack => true;
@@ -46,9 +47,24 @@ namespace DrinkPay
 
         private void db_find_Gesamtpreis()
         {
-            string sSQL = "SELECT Gesamtbetrag FROM tblUSer WHERE Username = '" + Info.getUser() + "'";
+            string sSQL = "SELECT Gesamtbetrag FROM tblUser WHERE Username = '" + Info.getUser() + "'";
 
             Gesamtpreis.Text = "  " + clsDB.Get_String(sSQL, "Gesamtbetrag");
+        }
+
+        private void db_find_Anzahl()
+        {
+            // Bier
+            string sSQL = "SELECT SUM(Anzahl) FROM tblDrinks WHERE Username = '" + Info.getUser() + "' AND Drink = 'Bier'";
+            tb_Bier.Text = "  " + clsDB.get_db_string_sum(sSQL);
+
+            // Cuba Libre
+            sSQL = "SELECT SUM(Anzahl) FROM tblDrinks WHERE Username = '" + Info.getUser() + "' AND Drink = 'Cuba Libre'";
+            tb_CubaLibre.Text = "  " + clsDB.get_db_string_sum(sSQL);
+
+            // Gin Tonic
+            sSQL = "SELECT SUM(Anzahl) FROM tblDrinks WHERE Username = '" + Info.getUser() + "' AND Drink = 'Gin Tonic'";
+            tb_GinTonic.Text = "  " + clsDB.get_db_string_sum(sSQL);
         }
     }
 }
