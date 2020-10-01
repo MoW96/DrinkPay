@@ -80,7 +80,6 @@ namespace DrinkPay
         {
 
             // funktioniert nicht
-
             SqlConnection cn_connection = Get_DB_Connection();
 
             DataSet dataSet = new DataSet();
@@ -88,13 +87,13 @@ namespace DrinkPay
 
             dataAdapter.Fill(dataSet);
 
-            if (dataSet.Tables[0].Rows.Count == 0)
+            if (dataSet.Tables[0].Rows[0]["Gesamtanzahl"].ToString().Equals(""))
             {
                 return "0";
             }
             else
             {
-                return dataSet.Tables[0].Rows[0].ToString();
+                return dataSet.Tables[0].Rows[0]["Gesamtanzahl"].ToString();
             }
         }
 

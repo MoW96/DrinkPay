@@ -195,6 +195,8 @@
       <DependentUpon>DB.mdf</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Resources\PayNot.jpg" />
+    <Resource Include="Resources\PayMe.jpg" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
