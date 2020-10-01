@@ -27,7 +27,9 @@ namespace DrinkPay
 
             NavigateToPage(new Entry());
 
-            Username.Text = "User: " + Info.getUser(); // später derjenige der sich angemeldet hat asu DB
+            Username.Text = "User: " + Info.getUser(); 
+
+            // TODO: Mail wenn Gesamtpreis über 20 € beim einloggen des Users
         }
 
         private void NavigateToPage(IDrinkPay page, bool back = false)
