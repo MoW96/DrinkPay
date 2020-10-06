@@ -10,6 +10,7 @@ namespace DrinkPay
     {
         private static string User = "";
         private static bool isAdmin;
+        private static bool CloseFromAnmeldung;
         public static void setUser(string Username)
         {
             User = Username;
@@ -28,6 +29,16 @@ namespace DrinkPay
         public static bool getAdmin()
         {
             return isAdmin;
+        }
+
+        public static void setClosefromLogin(bool close)
+        {
+            CloseFromAnmeldung = close;
+        }
+
+        public static bool getClosefromLogin()
+        {
+            return CloseFromAnmeldung;
         }
     }
 }

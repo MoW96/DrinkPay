@@ -234,6 +234,7 @@ namespace DrinkPay
         {
             if (NotClose == false)
             {
+                Info.setClosefromLogin(true);
                 clsDB.Close_DB_Connection();
                 Application.Current.Shutdown();
             }

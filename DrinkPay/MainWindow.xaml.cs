@@ -32,8 +32,11 @@ namespace DrinkPay
             Username.Text = "User: " + Info.getUser();
             btnLogout.ToolTip = "Logout";
 
-            checkZahlung();
-            checkAdmin();
+            if (!Info.getClosefromLogin())
+            {
+                checkZahlung();
+                checkAdmin();
+            }
         }
 
         private void NavigateToPage(IDrinkPay page, bool back = false)
