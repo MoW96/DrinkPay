@@ -73,6 +73,16 @@ namespace DrinkPay.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Bier_HD {
+            get {
+                object obj = ResourceManager.GetObject("Bier_HD", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Blue_Lagoon {
             get {
                 object obj = ResourceManager.GetObject("Blue_Lagoon", resourceCulture);
@@ -133,6 +143,26 @@ namespace DrinkPay.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_full_trash {
+            get {
+                object obj = ResourceManager.GetObject("icons8_full_trash", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_geld {
+            get {
+                object obj = ResourceManager.GetObject("icons8_geld", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_home_32 {
             get {
                 object obj = ResourceManager.GetObject("icons8_home_32", resourceCulture);
@@ -146,6 +176,36 @@ namespace DrinkPay.Properties {
         internal static System.Drawing.Bitmap icons8_list {
             get {
                 object obj = ResourceManager.GetObject("icons8_list", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_logout {
+            get {
+                object obj = ResourceManager.GetObject("icons8_logout", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_löschen {
+            get {
+                object obj = ResourceManager.GetObject("icons8_löschen", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_microsoft_benutzer {
+            get {
+                object obj = ResourceManager.GetObject("icons8_microsoft_benutzer", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

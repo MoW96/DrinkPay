@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -53,10 +54,9 @@ namespace DrinkPay
         {
             string sSQL = "SELECT Gesamtbetrag FROM tblUser WHERE Username = '" + Info.getUser() + "'";
             string ges = clsDB.Get_String(sSQL, "Gesamtbetrag").Replace('€', ' ');
-            ges = ges.Replace(',', '.');
             ges = ges.Trim();
 
-            gesamtpreis = float.Parse(ges);
+            gesamtpreis = float.Parse(ges, CultureInfo.CurrentCulture);
             Gesamtpreis.Text = "  " + clsDB.Get_String(sSQL, "Gesamtbetrag");
         }
 
@@ -77,7 +77,7 @@ namespace DrinkPay
 
         private void setPicturefromGesamtpreis()
         {
-            if (gesamtpreis > 20)
+            if (gesamtpreis > 20.0)
             {
                 Zahlen.Visibility = Visibility.Visible;
                 NichtZahlen.Visibility = Visibility.Collapsed;

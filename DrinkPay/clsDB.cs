@@ -69,7 +69,14 @@ namespace DrinkPay
                         }
                         else
                         {
-                            return dataSet.Tables[0].Rows[0]["Gesamtbetrag"].ToString();
+                            if (Type.Equals("Gesamtbetrag"))
+                            {
+                                return dataSet.Tables[0].Rows[0]["Gesamtbetrag"].ToString();
+                            }
+                            else
+                            {
+                                return dataSet.Tables[0].Rows[0]["isAdmin"].ToString();
+                            }
                         }
                     }
                 }

@@ -74,21 +74,45 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BetragAnpassen.xaml.cs">
+      <DependentUpon>BetragAnpassen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Einstellungen.xaml.cs">
+      <DependentUpon>Einstellungen.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Getränkeeingabe.xaml.cs">
       <DependentUpon>Getränkeeingabe.xaml</DependentUpon>
     </Compile>
     <Compile Include="Info.cs" />
+    <Compile Include="MailEingabe.xaml.cs">
+      <DependentUpon>MailEingabe.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserAnmeldung.xaml.cs">
       <DependentUpon>UserAnmeldung.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserLöschen.xaml.cs">
+      <DependentUpon>UserLöschen.xaml</DependentUpon>
     </Compile>
     <Compile Include="Übersicht.xaml.cs">
       <DependentUpon>Übersicht.xaml</DependentUpon>
     </Compile>
+    <Page Include="BetragAnpassen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Einstellungen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Entry.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Getränkeeingabe.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MailEingabe.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -114,6 +138,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserAnmeldung.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserLöschen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -195,6 +223,12 @@
       <DependentUpon>DB.mdf</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Resources\icons8-logout.png" />
+    <Resource Include="Resources\icons8-full-trash.png" />
+    <Resource Include="Resources\Bier-HD.jpg" />
+    <Resource Include="Resources\icons8-microsoft-benutzer.png" />
+    <Resource Include="Resources\icons8-löschen.png" />
+    <Resource Include="Resources\icons8-geld.png" />
     <Resource Include="Resources\PayNot.jpg" />
     <Resource Include="Resources\PayMe.jpg" />
   </ItemGroup>

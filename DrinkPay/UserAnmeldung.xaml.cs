@@ -87,8 +87,7 @@ namespace DrinkPay
 
         private void btnSaveRegistrieren_Click(object sender, RoutedEventArgs e)
         {
-            //TODO: DB einträge vornehmen und starten
-            string sql_Add = "INSERT INTO tblUser ([Username],[MailAdresse],[Passwort]) VALUES('" + tbUsernameRegistrieren.Text + "','" + tbMailAdressRegistrrieren.Text + "','" + hashing(tbPasswortRegistrieren.Password) + "')";
+            string sql_Add = "INSERT INTO tblUser ([Username],[MailAdresse],[Passwort],[Gesamtbetrag],[isAdmin]) VALUES('" + tbUsernameRegistrieren.Text + "','" + tbMailAdressRegistrrieren.Text + "','" + hashing(tbPasswortRegistrieren.Password) + "','0,00€','false')";
             clsDB.Execute_SQL(sql_Add);
 
             Info.setUser(tbUsernameRegistrieren.Text);

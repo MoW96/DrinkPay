@@ -21,12 +21,16 @@ namespace DrinkPay
     /// </summary>
     public partial class Entry : Page, IDrinkPay
     {
+        int adminClicked;
+
         public Entry()
         {
             InitializeComponent();
             btn_DrinkPay.ToolTip = "Getränkeingabe";
             btn_Übersicht.ToolTip = "Übersicht";
             btn_Einstellungen.ToolTip = "Einstellungen";
+            btn_GesamtbetragAnpassen.ToolTip = "Gesamtbetrag anpassen";
+            btn_UserLöschen.ToolTip = "User löschen";
 
             if (Info.getUser().Equals(""))
             {
@@ -34,6 +38,8 @@ namespace DrinkPay
                 start.ShowDialog();
             }
 
+            setInfoIsAdmin();
+            checkAdmin();
         }
 
         public bool AllowsBack => false;
@@ -46,26 +52,37 @@ namespace DrinkPay
 
         private void BlueLagoon_MouseEnter(object sender, MouseEventArgs e)
         {
-            Image img = ((Image)sender);
-
-            Thickness margin = img.Margin;
-            margin.Left = 100 / 1.15;
-            margin.Right = 100 / 1.15;
-            margin.Top = 100 / 1.15;
-            margin.Bottom = 100 / 1.15;
-            img.Margin = margin;
+            BlueLagoon.Height = BlueLagoon.ActualHeight / 1.1;
         }
 
         private void BlueLagoon_MouseLeave(object sender, MouseEventArgs e)
         {
-            Image img = ((Image)sender);
+            BlueLagoon.Height = BlueLagoon.ActualHeight * 1.1;
+        }
 
-            Thickness margin = img.Margin;
-            margin.Left = 100;
-            margin.Right = 100;
-            margin.Top = 100;
-            margin.Bottom = 100;
-            img.Margin = margin;
+
+        private void Bier_MouseEnter(object sender, MouseEventArgs e)
+        {
+            Bier.Height = Bier.ActualHeight / 1.1;
+        }
+
+        private void Bier_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Bier.Height = Bier.ActualHeight * 1.1;
+        }
+
+        private void checkAdmin()
+        {
+            if (Info.getAdmin())
+            {
+                btn_UserLöschen.Visibility = Visibility.Visible;
+                btn_GesamtbetragAnpassen.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                btn_UserLöschen.Visibility = Visibility.Hidden;
+                btn_GesamtbetragAnpassen.Visibility = Visibility.Hidden;
+            }
         }
 
         private void btn_DrinkPay_Click(object sender, RoutedEventArgs e)
@@ -80,7 +97,54 @@ namespace DrinkPay
 
         private void btn_Einstellungen_Click(object sender, RoutedEventArgs e)
         {
-            // hier Einstellungen vornehmen und benutzer wechseln
+            NavigationRequest?.Invoke(this, new Einstellungen());
+        }
+
+        private void btn_UserLöschen_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationRequest?.Invoke(this, new UserLöschen());
+        }
+
+        private void btn_GesamtbetragAnpassen_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationRequest?.Invoke(this, new BetragAnpassen());
+        }
+
+        private void Admin_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            adminClicked++;
+
+            if (getAdminFromDB().Equals("false"))
+            {
+                if (adminClicked == 10)
+                {
+                    Info.setAdmin(true);
+
+                    string sql_Add = "UPDATE tblUser SET isAdmin = 'true' WHERE Username = '" + Info.getUser() + "'";
+                    clsDB.Execute_SQL(sql_Add);
+
+                    checkAdmin();
+                }
+            }
+        }
+
+        private string getAdminFromDB()
+        {
+            string sSQL = "SELECT isAdmin FROM tblUser WHERE [Username] = '" + Info.getUser() + "'";
+
+            return clsDB.Get_String(sSQL, "isAdmin");
+        }
+
+        private void setInfoIsAdmin()
+        {
+            if (getAdminFromDB().Equals("true"))
+            {
+                Info.setAdmin(true);
+            }
+            else
+            {
+                Info.setAdmin(false);
+            }
         }
     }
 }

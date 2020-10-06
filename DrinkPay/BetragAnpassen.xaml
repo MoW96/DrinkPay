@@ -1,0 +1,49 @@
+﻿<Page x:Class="DrinkPay.BetragAnpassen"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DrinkPay"
+      mc:Ignorable="d" 
+      d:DesignHeight="750" d:DesignWidth="1200"
+      Title="Betrag Anpassen">
+    <Page.Resources>
+        <ResourceDictionary Source="Styles.xaml"/>
+    </Page.Resources>
+    <Grid>
+        <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="100">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock FontSize="20" Margin="0,0,20,0">User:</TextBlock>
+                    <ComboBox MaxDropDownHeight="200" x:Name="cbUser" MinWidth="100" DropDownClosed="cbUser_DropDownClosed">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Username}" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </StackPanel>
+            </StackPanel>
+            <Separator Margin="20"/>
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="100">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock FontSize="20" Margin="0,0,20,10">  Offener Betrag</TextBlock>
+                    <TextBlock FontSize="20" Margin="0,0,20,10" x:Name="tbOffenerBetrag">-</TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock FontSize="20" Margin="0,0,20,10">- bezahlter Betrag</TextBlock>
+                    <TextBox FontSize="20" Margin="0,0,20,10" x:Name="tbBzahlt" MinWidth="100" TextChanged="tbBzahlt_TextChanged"></TextBox>
+                </StackPanel>
+                <Separator/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock FontSize="20" Margin="0,0,20,10">= neuer Betrag</TextBlock>
+                    <TextBlock FontSize="20" Margin="0,0,20,10" x:Name="tbNeu">-</TextBlock>
+                </StackPanel>
+                <Button x:Name="btnBetragAnpassen" HorizontalAlignment="Right" Margin="20" Click="btnBetragAnpassen_Click" IsEnabled="False">Bestätigen</Button>
+            </StackPanel>
+            <Separator/>
+        </StackPanel>
+    </Grid>
+</Page>

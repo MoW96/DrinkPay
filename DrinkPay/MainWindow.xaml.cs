@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -27,9 +29,11 @@ namespace DrinkPay
 
             NavigateToPage(new Entry());
 
-            Username.Text = "User: " + Info.getUser(); 
+            Username.Text = "User: " + Info.getUser();
+            btnLogout.ToolTip = "Logout";
 
-            // TODO: Mail wenn Gesamtpreis über 20 € beim einloggen des Users
+            checkZahlung();
+            checkAdmin();
         }
 
         private void NavigateToPage(IDrinkPay page, bool back = false)
@@ -91,10 +95,90 @@ namespace DrinkPay
             // NavigateToPage(impressumPage);
         }
 
+        private string get_MailFromDB()
+        {
+            string sSQL = "SELECT MailAdresse FROM tblUser WHERE [Username] = '" + Info.getUser() + "'";
+
+            return clsDB.Get_String(sSQL, "Mail");
+        }
+
+        private string getGesamtbetragfromDB()
+        {
+            string sSQL = "SELECT Gesamtbetrag FROM tblUser WHERE [Username] = '" + Info.getUser() + "'";
+
+            return clsDB.Get_String(sSQL, "Gesamtbetrag");
+        }
+
+        private void sendMail()
+        {
+
+            string from = "zahledeinegetraenke@gmail.com";
+            string to = get_MailFromDB();
+
+            SmtpClient SmtpMail = new SmtpClient("smtp.gmail.com");
+            SmtpMail.Port = 587;
+            SmtpMail.Credentials = new System.Net.NetworkCredential("zahledeinegetraenke", "Ratiborer.Wohnheim.123");
+            SmtpMail.EnableSsl = true;
+
+            MailMessage myMail = new MailMessage(from, to);
+            myMail.Subject = "Suff bezahlen (Rati EG) " + DateTime.Now.ToString("dd.MM.yyyy - hh:mm") ;
+            myMail.Priority = MailPriority.Normal;
+            myMail.IsBodyHtml = true;
+            myMail.Body = "<html>" +
+                "<body style='text-align:center, margin:auto'>" +
+                "<h2>Zahlungserinnerung:</h2>" +
+                "<p><br>Bitte bezahle " + getGesamtbetragfromDB() + " auf das folgende PayPal-Konto:<br>test@mail.de</p>" +
+                "<a href='www.google.de'>Platzhalter</a>" +
+                "<p><br>Viele Grüße<br></p>" +
+                "<p>Rati EG</p>" + 
+                "</body>" +
+                "</html>";
+
+            SmtpMail.Send(myMail);
+        }
+
+        private void checkZahlung()
+        {
+            string ges = getGesamtbetragfromDB().Replace('€', ' ');
+            ges = ges.Trim();
+
+            float gesamtpreis = float.Parse(ges, CultureInfo.CurrentCulture);
+
+            if (gesamtpreis > 20)
+            {
+                sendMail();
+            }
+        }
+
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             clsDB.Close_DB_Connection();
             Environment.Exit(Environment.ExitCode); 
+        }
+
+        private string getAdminfromDB()
+        {
+            string sSQL = "SELECT isAdmin FROM tblUser WHERE [Username] = '" + Info.getUser() + "'";
+
+            return clsDB.Get_String(sSQL, "isAdmin");
+        }
+
+        private void checkAdmin()
+        {
+            if (getAdminfromDB().Equals("false"))
+            {
+                Info.setAdmin(false);
+            }
+            else
+            {
+                Info.setAdmin(true);
+            }
+        }
+
+        private void btnLogout_Click(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
+            Application.Current.Shutdown();
         }
     }
 }

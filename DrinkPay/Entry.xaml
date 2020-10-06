@@ -16,17 +16,33 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" Grid.Column="0" Margin="50" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Button  Margin="10,10,10,10" x:Name="btn_DrinkPay" Background="Transparent" BorderBrush="Transparent" Click="btn_DrinkPay_Click">
-                <Image Source="Resources/icons8-cocktail.png" Height="100"/>
-            </Button>
-            <Button  Margin="10,10,10,10" x:Name="btn_Übersicht" Background="Transparent" BorderBrush="Transparent" Click="btn_Übersicht_Click">
-                <Image Source="Resources/icons8-list.png" Height="100"/>
-            </Button>
-            <Button  Margin="10,10,10,10" x:Name="btn_Einstellungen" Background="Transparent" BorderBrush="Transparent" Click="btn_Einstellungen_Click">
-                <Image Source="Resources/icons8-settings.png" Height="100"/>
-            </Button>
+        <StackPanel Orientation="Vertical">
+            <StackPanel Grid.Row="0" Grid.Column="0" Margin="50" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Button  Margin="10,10,10,10" x:Name="btn_DrinkPay" Background="Transparent" BorderBrush="Transparent" Click="btn_DrinkPay_Click">
+                    <Image Source="Resources/icons8-cocktail.png" Height="100"/>
+                </Button>
+                <Button  Margin="10,10,10,10" x:Name="btn_Übersicht" Background="Transparent" BorderBrush="Transparent" Click="btn_Übersicht_Click">
+                    <Image Source="Resources/icons8-list.png" Height="100"/>
+                </Button>
+                <Button  Margin="10,10,10,10" x:Name="btn_Einstellungen" Background="Transparent" BorderBrush="Transparent" Click="btn_Einstellungen_Click">
+                    <Image Source="Resources/icons8-settings.png" Height="100"/>
+                </Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"  Grid.Row="0" Grid.Column="0" Margin="-50" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Button  Margin="10,10,10,10" x:Name="btn_GesamtbetragAnpassen" Background="Transparent" BorderBrush="Transparent" Click="btn_GesamtbetragAnpassen_Click" Visibility="Collapsed">
+                    <Image Source="Resources/icons8-geld.png" Height="100"/>
+                </Button>
+                <Button  Margin="10,10,10,10" x:Name="btn_UserLöschen" Background="Transparent" BorderBrush="Transparent" Click="btn_UserLöschen_Click" Visibility="Collapsed">
+                    <Image Source="Resources/icons8-löschen.png" Height="100"/>
+                </Button>
+            </StackPanel>
         </StackPanel>
-        <Image x:Name="BlueLagoon" Grid.Row="1" Source="Resources/Blue-Lagoon.jpg" Margin="100" MouseEnter="BlueLagoon_MouseEnter" MouseLeave="BlueLagoon_MouseLeave"></Image>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="175,75,175,75" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Image x:Name="BlueLagoon" Source="Resources/Blue-Lagoon.jpg" Margin="20" MouseEnter="BlueLagoon_MouseEnter" MouseLeave="BlueLagoon_MouseLeave"></Image>
+            <Image x:Name="Bier" Source="Resources/Bier-HD.jpg" Margin="20" MouseEnter="Bier_MouseEnter" MouseLeave="Bier_MouseLeave"/>
+        </StackPanel>
+        <StackPanel Grid.Row="2">
+        <Image x:Name="Admin" Source="Resources/icons8-microsoft-benutzer.png" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="20" Margin="10" MouseLeftButtonDown="Admin_MouseLeftButtonDown"></Image>
+        </StackPanel>
     </Grid>
 </Page>

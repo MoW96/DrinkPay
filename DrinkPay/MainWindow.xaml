@@ -42,8 +42,13 @@
                 </Grid>
             </Button>
         </StackPanel>
-        <Grid Grid.Row="0" x:Name="UserGrid" HorizontalAlignment="Right" Width="175">
-            <TextBlock x:Name="Username" FontSize="15" HorizontalAlignment="Right" Margin="10"></TextBlock>
+        <Grid Grid.Row="0" x:Name="UserGrid" HorizontalAlignment="Right">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock x:Name="Username" FontSize="15" HorizontalAlignment="Right" Margin="10"></TextBlock>
+                <Button x:Name="btnLogout" Margin="10" Background="Transparent" BorderBrush="Transparent" Click="btnLogout_Click">
+                    <Image Source="Resources/icons8-logout.png" x:Name="Logout" Height="20" ></Image>
+                </Button>
+            </StackPanel>
         </Grid>
     </Grid>
 </Window>
