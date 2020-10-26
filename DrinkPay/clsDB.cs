@@ -26,12 +26,15 @@ namespace DrinkPay
         // Datenbankverbindung herstellen
         public static SqlConnection Get_DB_Connection()
         {
+            MessageBox.Show("036: Get_DB_Connection");
             // Properties: DrinkPay.Properties.Settings.Default.connection_String;
             SqlConnection cn_connection = findDBConnectionString();
 
             if (cn_connection.State != ConnectionState.Open)
             {
+                MessageBox.Show("037:  Get_DB_Connection");
                 cn_connection.Open();
+                MessageBox.Show("038:  Get_DB_Connection");
             }
 
             return cn_connection;
