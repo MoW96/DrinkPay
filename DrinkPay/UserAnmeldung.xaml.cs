@@ -26,23 +26,29 @@ namespace DrinkPay
             InitializeComponent();
 
             tbUsernameRegistrieren.ToolTip = "Bitte 'Vorname_Nachname' verwenden!";
+
+            
         }
 
         // Registrierung
         private void tbUsername_TextChanged(object sender, TextChangedEventArgs e)
         {
+            MessageBox.Show("020: tbUsername_TextChanged");
             if (!tbUsernameRegistrieren.Text.Equals("") && get_UserFromDB(tbUsernameRegistrieren.Text).Equals("") && tbUsernameRegistrieren.Text.Contains("_") && !tbUsernameRegistrieren.Text.StartsWith("_")
                 && !tbUsernameRegistrieren.Text.EndsWith("_"))
             {
+                MessageBox.Show("041: tbUsername_TextChanged");
                 UsernameOK = true;
                 tbUsernameRegistrieren.Foreground = Brushes.Black;
             }
             else
             {
+                MessageBox.Show("042: tbUsername_TextChanged");
                 UsernameOK = false;
                 tbUsernameRegistrieren.Foreground = Brushes.Red;
             }
             inputRegOK();
+            MessageBox.Show("050: tbUsername_TextChanged");
         }
 
         private void tbPasswortRegistrieren_PasswordChanged(object sender, RoutedEventArgs e)
@@ -225,9 +231,15 @@ namespace DrinkPay
 
         private string get_UserFromDB(string Username)
         {
+            MessageBox.Show("030: get_UserFromDB");
+  
             string sSQL = "SELECT Username FROM tblUser WHERE [Username] = '" + Username + "'";
 
-            return clsDB.Get_String(sSQL, "User");
+            DateTime start = DateTime.Now;
+            string s = clsDB.Get_String(sSQL, "User");
+            DateTime end = DateTime.Now;
+            MessageBox.Show("031: get_UserFromDB: " + (end - start).TotalMilliseconds.ToString() + "ms");
+            return s;
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
