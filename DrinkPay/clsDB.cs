@@ -18,6 +18,7 @@ namespace DrinkPay
             sqlConBuilder.DataSource = @"(LocalDB)\MSSQLLocalDB";
             sqlConBuilder.AttachDBFilename = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "DB.mdf");
             sqlConBuilder.IntegratedSecurity = true;
+            sqlConBuilder.ConnectTimeout = 5;
             var sqlCon = new SqlConnection(sqlConBuilder.ToString());
 
             return sqlCon;
@@ -33,7 +34,15 @@ namespace DrinkPay
             if (cn_connection.State != ConnectionState.Open)
             {
                 MessageBox.Show("037:  Get_DB_Connection");
-                cn_connection.Open();
+                try
+                {
+
+                    cn_connection.Open();
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message + Environment.NewLine + ex.StackTrace);
+                }
                 MessageBox.Show("038:  Get_DB_Connection");
             }
 
