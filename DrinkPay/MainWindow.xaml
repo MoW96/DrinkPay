@@ -50,5 +50,6 @@
                 </Button>
             </StackPanel>
         </Grid>
+        <TextBlock Grid.Row="1" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Bottom">Icons by <Hyperlink NavigateUri="https://icons8.de/" RequestNavigate="Hyperlink_RequestNavigate">icon8</Hyperlink></TextBlock>
     </Grid>
 </Window>

@@ -5,16 +5,29 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
+using System.IO;
+using System.Windows;
 
 namespace DrinkPay
 {
     public static class clsDB
     {
+        public static SqlConnection findDBConnectionString()
+        {
+            var sqlConBuilder = new SqlConnectionStringBuilder();
+            sqlConBuilder.DataSource = @"(LocalDB)\MSSQLLocalDB";
+            sqlConBuilder.AttachDBFilename = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "DB.mdf");
+            sqlConBuilder.IntegratedSecurity = true;
+            var sqlCon = new SqlConnection(sqlConBuilder.ToString());
+
+            return sqlCon;
+        }
+
         // Datenbankverbindung herstellen
         public static SqlConnection Get_DB_Connection()
         {
-            string cn_String = DrinkPay.Properties.Settings.Default.connection_String;
-            SqlConnection cn_connection = new SqlConnection(cn_String);
+            // Properties: DrinkPay.Properties.Settings.Default.connection_String;
+            SqlConnection cn_connection = findDBConnectionString();
 
             if (cn_connection.State != ConnectionState.Open)
             {
@@ -116,9 +129,7 @@ namespace DrinkPay
         // Schließen
         public static void Close_DB_Connection()
         {
-            string cn_String = DrinkPay.Properties.Settings.Default.connection_String;
-
-            SqlConnection cn_connection = new SqlConnection(cn_String);
+            SqlConnection cn_connection = findDBConnectionString();
             if (cn_connection.State != ConnectionState.Closed)
             {
                 cn_connection.Close();

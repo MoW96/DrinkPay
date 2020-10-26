@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Net.Mail;
@@ -84,8 +85,8 @@ namespace DrinkPay
 
         private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
         {
-            //Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri));
-            //e.Handled = true;
+            Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri));
+            e.Handled = true;
         }
 
         private void Home_Click(object sender, RoutedEventArgs e)
@@ -124,15 +125,15 @@ namespace DrinkPay
             SmtpMail.EnableSsl = true;
 
             MailMessage myMail = new MailMessage(from, to);
-            myMail.Subject = "Suff bezahlen (Rati EG) " + DateTime.Now.ToString("dd.MM.yyyy - hh:mm") ;
+            myMail.Subject = "Suff bezahlen (Rati EG) " + DateTime.Now.ToString("MM.dd.yyyy - HH:mm") ;
             myMail.Priority = MailPriority.Normal;
             myMail.IsBodyHtml = true;
             myMail.Body = "<html>" +
                 "<body style='text-align:center, margin:auto'>" +
                 "<h2>Zahlungserinnerung:</h2>" +
-                "<p><br>Bitte bezahle " + getGesamtbetragfromDB() + " auf das folgende PayPal-Konto:<br>test@mail.de</p>" +
-                "<a href='www.google.de'>Platzhalter</a>" +
-                "<p><br>Viele Grüße<br></p>" +
+                "<p><br>Bitte bezahle " + getGesamtbetragfromDB() + " auf das folgende PayPal-Konto:</p>" +
+                "<a href='https://www.paypal.com/pools/c/8qCeEjO5fD'>PayPal-MoneyPool</a>" +
+                "<p>(Mail-Adresse falls benötigt: zahledeinegetraenke@gmail.com)<br>Viele Grüße</p>" +
                 "<p>Rati EG</p>" + 
                 "</body>" +
                 "</html>";

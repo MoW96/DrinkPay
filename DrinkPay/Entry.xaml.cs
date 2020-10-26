@@ -39,6 +39,7 @@ namespace DrinkPay
             }
 
             setInfoIsAdmin();
+            
             checkAdmin();
         }
 
@@ -118,10 +119,8 @@ namespace DrinkPay
             {
                 if (adminClicked == 10)
                 {
-                    Info.setAdmin(true);
-
-                    string sql_Add = "UPDATE tblUser SET isAdmin = 'true' WHERE Username = '" + Info.getUser() + "'";
-                    clsDB.Execute_SQL(sql_Add);
+                    AdminPasswort adminPasswort = new AdminPasswort();
+                    adminPasswort.ShowDialog();
 
                     checkAdmin();
                 }

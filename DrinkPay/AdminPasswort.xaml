@@ -1,0 +1,23 @@
+﻿<Window x:Class="DrinkPay.AdminPasswort"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DrinkPay"
+        mc:Ignorable="d"
+        Title="AdminPasswort" Height="225" Width="400"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Topmost="True">
+    <Window.Resources>
+        <ResourceDictionary Source="Styles.xaml"/>
+    </Window.Resources>
+    <Grid>
+        <StackPanel Orientation="Vertical" Margin="40">
+            <TextBlock Margin="0,0,0,10" FontSize="14">Geben Sie das Admin-Passwort ein:</TextBlock>
+            <PasswordBox Margin="0,0,0,10" x:Name="AdminPw" KeyDown="AdminPw_KeyDown" PasswordChanged="AdminPw_PasswordChanged"></PasswordBox>
+            <TextBlock Margin="0,0,0,10" Foreground="DarkRed" x:Name="AdminFehler"></TextBlock>
+            <Button Margin="0,0,0,10" x:Name="btnAdmin" HorizontalAlignment="Right" Click="btnAdmin_Click">Bestätigen</Button>
+        </StackPanel>
+    </Grid>
+</Window>
