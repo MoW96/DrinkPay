@@ -51,13 +51,14 @@ namespace DrinkPay
 
         public static string Get_String(string SQLText, string Type)
         {
+            MessageBox.Show("032: Get_String");
             SqlConnection cn_connection = Get_DB_Connection();
-
+            MessageBox.Show("033: Get_String");
             DataSet dataSet = new DataSet();
             var dataAdapter = new SqlDataAdapter(SQLText, cn_connection);
 
             dataAdapter.Fill(dataSet);
-
+            MessageBox.Show("034: Get_String");
             if (dataSet.Tables[0].Rows.Count == 0)
             {
                 return "";
