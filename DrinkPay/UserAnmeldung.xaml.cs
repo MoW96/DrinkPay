@@ -83,8 +83,8 @@ namespace DrinkPay
                 }
             }
 
-            if (!tbUsernameRegistrieren.Text.Equals("") && get_UserFromDB(tbUsernameRegistrieren.Text).Equals("") && tbUsernameRegistrieren.Text.Contains("_") && !tbUsernameRegistrieren.Text.StartsWith("_")
-                 && !tbUsernameRegistrieren.Text.EndsWith("_"))
+            if (!tbUsernameRegistrieren.Text.Equals("") && get_UserFromDB(tbUsernameRegistrieren.Text).Equals("") && tbUsernameRegistrieren.Text.Contains("_") && 
+                !tbUsernameRegistrieren.Text.StartsWith("_") && !tbUsernameRegistrieren.Text.EndsWith("_"))
             {
                 if (blockListOk)
                 {
