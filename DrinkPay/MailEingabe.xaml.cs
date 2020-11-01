@@ -20,6 +20,7 @@ namespace DrinkPay
     public partial class MailEingabe : Window
     {
         public string Mail;
+        private bool closable = false;
 
         public MailEingabe()
         {
@@ -54,6 +55,7 @@ namespace DrinkPay
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
             Mail = tbMailAdress.Text;
+            closable = true;
 
             this.Close();
         }
@@ -65,9 +67,18 @@ namespace DrinkPay
                 if (IsValidEmail(tbMailAdress.Text))
                 {
                     Mail = tbMailAdress.Text;
+                    closable = true;
 
                     this.Close();
                 }
+            }
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (!closable)
+            {
+                e.Cancel = true;
             }
         }
     }

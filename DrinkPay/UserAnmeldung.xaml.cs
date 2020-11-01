@@ -172,7 +172,17 @@ namespace DrinkPay
         {
             if (!tbUserAnmelden.Text.Equals(""))
             {
-                UserOK = true;
+                foreach (String item in blockList)
+                {
+                    if (!tbUsernameRegistrieren.Text.Contains(item))
+                    {
+                        UserOK = true;
+                    }
+                    else
+                    {
+                        UserOK = true;
+                    }
+                }
             }
             else
             {

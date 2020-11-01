@@ -9,7 +9,8 @@
         WindowStartupLocation="CenterScreen"
         Topmost="True"
         MinHeight="170" MinWidth="300"
-        MaxHeight="170" MaxWidth="300">
+        MaxHeight="170" MaxWidth="300"
+        Closing="Window_Closing">
     <Grid>
         <StackPanel Orientation="Vertical" Margin="20">
             <TextBlock>Geben Sie Ihre Mail-Adresse ein:</TextBlock>
