@@ -27,13 +27,13 @@ namespace DrinkPay
         // Datenbankverbindung herstellen
         public static SqlConnection Get_DB_Connection()
         {
-            MessageBox.Show("036: Get_DB_Connection");
+            //MessageBox.Show("036: Get_DB_Connection");
             // Properties: DrinkPay.Properties.Settings.Default.connection_String;
             SqlConnection cn_connection = findDBConnectionString();
 
             if (cn_connection.State != ConnectionState.Open)
             {
-                MessageBox.Show("037:  Get_DB_Connection");
+                //MessageBox.Show("037:  Get_DB_Connection");
                 try
                 {
 
@@ -43,7 +43,7 @@ namespace DrinkPay
                 {
                     MessageBox.Show(ex.Message + Environment.NewLine + ex.StackTrace);
                 }
-                MessageBox.Show("038:  Get_DB_Connection");
+                //MessageBox.Show("038:  Get_DB_Connection");
             }
 
             return cn_connection;
@@ -63,14 +63,14 @@ namespace DrinkPay
 
         public static string Get_String(string SQLText, string Type)
         {
-            MessageBox.Show("032: Get_String");
+            //MessageBox.Show("032: Get_String");
             SqlConnection cn_connection = Get_DB_Connection();
-            MessageBox.Show("033: Get_String");
+            //MessageBox.Show("033: Get_String");
             DataSet dataSet = new DataSet();
             var dataAdapter = new SqlDataAdapter(SQLText, cn_connection);
 
             dataAdapter.Fill(dataSet);
-            MessageBox.Show("034: Get_String");
+            //MessageBox.Show("034: Get_String");
             if (dataSet.Tables[0].Rows.Count == 0)
             {
                 return "";

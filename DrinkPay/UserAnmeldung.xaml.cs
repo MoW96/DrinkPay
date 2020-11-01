@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
@@ -21,34 +22,83 @@ namespace DrinkPay
     public partial class UserAnmeldung : Window
     {
         bool MailOK, UsernameOK, PasswortOK, UserOK, AnmeldePWOK, NotClose;
+        ArrayList blockList = new ArrayList();
+
         public UserAnmeldung()
         {
             InitializeComponent();
 
             tbUsernameRegistrieren.ToolTip = "Bitte 'Vorname_Nachname' verwenden!";
 
-            
+            blockList.Add("ALTER");
+            blockList.Add("TABLE");
+            blockList.Add("CREATE");
+            blockList.Add("DATABASE");
+            blockList.Add("DELETE");
+            blockList.Add("FROM");
+            blockList.Add("DESCRIBE");
+            blockList.Add("DROP");
+            blockList.Add("INSERT");
+            blockList.Add("INTO");
+            blockList.Add("SELECT");
+            blockList.Add("SHOW");
+            blockList.Add("UPDATE");
+            blockList.Add("SET");
+            blockList.Add("USE");
+            blockList.Add("AND");
+            blockList.Add("OR");
+            blockList.Add("AVG");
+            blockList.Add("SUM");
         }
 
         // Registrierung
         private void tbUsername_TextChanged(object sender, TextChangedEventArgs e)
         {
-            MessageBox.Show("020: tbUsername_TextChanged");
-            if (!tbUsernameRegistrieren.Text.Equals("") && get_UserFromDB(tbUsernameRegistrieren.Text).Equals("") && tbUsernameRegistrieren.Text.Contains("_") && !tbUsernameRegistrieren.Text.StartsWith("_")
-                && !tbUsernameRegistrieren.Text.EndsWith("_"))
+            if (textChangedCheck())
             {
-                MessageBox.Show("041: tbUsername_TextChanged");
                 UsernameOK = true;
                 tbUsernameRegistrieren.Foreground = Brushes.Black;
             }
             else
             {
-                MessageBox.Show("042: tbUsername_TextChanged");
                 UsernameOK = false;
                 tbUsernameRegistrieren.Foreground = Brushes.Red;
             }
             inputRegOK();
-            MessageBox.Show("050: tbUsername_TextChanged");
+        }
+
+        private bool textChangedCheck()
+        {
+            bool blockListOk = false;
+
+            foreach (String item in blockList)
+            {
+                if (!tbUsernameRegistrieren.Text.Contains(item))
+                {
+                    blockListOk = true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+
+            if (!tbUsernameRegistrieren.Text.Equals("") && get_UserFromDB(tbUsernameRegistrieren.Text).Equals("") && tbUsernameRegistrieren.Text.Contains("_") && !tbUsernameRegistrieren.Text.StartsWith("_")
+                 && !tbUsernameRegistrieren.Text.EndsWith("_"))
+            {
+                if (blockListOk)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
         }
 
         private void tbPasswortRegistrieren_PasswordChanged(object sender, RoutedEventArgs e)
@@ -214,7 +264,7 @@ namespace DrinkPay
         }
 
         private string hashing(string Passwort)
-        { 
+        {
             // with SHA256 und salt
             string salt = "DrinkPay2020";
 
@@ -225,20 +275,15 @@ namespace DrinkPay
                 byte[] hashBytes = sha256Hash.ComputeHash(sourceBytes);
                 string hash = BitConverter.ToString(hashBytes).Replace("-", String.Empty);
 
-                return hash; 
+                return hash;
             }
         }
 
         private string get_UserFromDB(string Username)
         {
-            MessageBox.Show("030: get_UserFromDB");
-  
             string sSQL = "SELECT Username FROM tblUser WHERE [Username] = '" + Username + "'";
 
-            DateTime start = DateTime.Now;
             string s = clsDB.Get_String(sSQL, "User");
-            DateTime end = DateTime.Now;
-            MessageBox.Show("031: get_UserFromDB: " + (end - start).TotalMilliseconds.ToString() + "ms");
             return s;
         }
 
